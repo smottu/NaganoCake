@@ -1,0 +1,19 @@
+<h1>商品新規登録</h1>
+
+<%= form_with url: admin_items_path do |f| %>
+<p>商品画像</p>
+
+<%= f.file_field :image, accept: "image/*" %>
+
+商品名
+<%= f.text_field :name %>
+商品説明
+<%= f.text_area :introduction %>
+ジャンル
+税抜価格
+販売ステータス
+
+
+<%= f.submit '投稿' %>
+<% end %>
+
