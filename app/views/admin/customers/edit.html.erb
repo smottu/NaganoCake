@@ -1,0 +1,18 @@
+<h1><%= @customer.first_name %><% @customer.last_name %>会員情報編集</h1>
+<% form_with model: @customer do |f| %>
+会員ID
+
+氏名
+
+フリガナ
+
+郵便番号
+
+住所
+
+電話番号
+
+メールアドレス
+
+会員ステータス
+<% end %>
