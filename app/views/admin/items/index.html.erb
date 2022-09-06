@@ -5,6 +5,6 @@
 <%= @item.id %>
 <%= @item.name %>
 <%= @item.price %>
-<%= @genre.name %>
-<%=　ステータス%>
+<%= @item.genre.name %>
+<%= collection_select(:genre, :name, templates, :id, :name, {:include_blank => true}) %>
 <% end %>

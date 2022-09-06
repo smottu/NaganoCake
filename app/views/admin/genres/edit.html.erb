@@ -1,8 +1,7 @@
 <h1>ジャンル編集</h1>
-<p>ジャンル名</p>
 
   <h4>ジャンル名</h4>
-<%= form_with model: @genre, url: admin_genres_path do |f| %>
+<%= form_with model: @genre, url: admin_genre_path(@genre) do |f| %>
  <%= f.text_field :name %>
- <%= f.submit '更新' %>
+ <%= f.submit '変更を保存' %>
 <% end %>
