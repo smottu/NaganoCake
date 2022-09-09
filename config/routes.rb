@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  
+
+  namespace :admin do
+    get 'oders/index'
+    get 'oders/show'
+  end
 #顧客用
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -21,6 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :products, only: [:new, :create, :destroy]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:new, :create, :index, :show, :edit, :update]
+    resources :oders, only: [:index, :show, :update]
   end
 
 

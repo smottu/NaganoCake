@@ -1,2 +1,8 @@
 注文履歴一覧
-購入日時 購入者 注文個数 注文ステータス
+<% @oders.each do |oder| %>
+<p>購入者</p>
+<%= @oder.name %>
+<p>注文個数</p>
+<%= @oder.quantity %>
+<p>注文ステータス</p>
+<% end %>

@@ -2,15 +2,37 @@
 <html>
   <head>
     <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <!--<main>-->
+    <!--  <header>-->
+  　　<!--  　<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 shadow-sm" style="top: 0px;">-->
+    <!--      <h2 class="m-0 text-primary">NaganoCake</h2>-->
+    <!--      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">-->
+    <!--        <span class="navbar-toggler-icon"></span>-->
+    <!--      </button>-->
+    <!--      <div class="collapse navbar-collapse" id="navbarCollapse">-->
+    <!--        <div class="navbar-nav ms-auto py-4 py-lg-0">-->
+    <!--          <% if admin_signed_in? %>-->
+    <!--           <% else %>-->
+    <!--        <%= link_to 'About', about_path, class: "nav-item nav-link active" %>-->
+    <!--        <%= link_to '商品一覧', admin_items_path,class: "nav-item nav-link" %>-->
+    <!--        <%= link_to '新規登録', new_customer_session_path, class: "nav-item nav-link" %>-->
+    <!--        <%= link_to 'ログイン', customer_session_path, class: "nav-item nav-link" %>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </nav>-->
+    <!--    <% end %>-->
+    <!--  </header>-->
+    <!--</main>-->
+    
     <%= yield %>
   </body>
 </html>

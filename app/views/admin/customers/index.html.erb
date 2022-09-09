@@ -1,15 +1,21 @@
 <h1>会員一覧</h1>
-会員ID
-氏名
-メールアドレス
-ステータス
-
 
 <% @customers.each do |customer| %>
+
+<p>会員ID</p>
 <%= customer.id %>
-<%= customer.first_name %>
-<%= customer.last_name %>
+<p>氏名</p>
+<%= customer.full_name %>
+<p>メールアドレス</p>
 <%= customer.email %>
+<p>ステータス</p>
 <%= customer.is_deleted %>
 <% end %>
+
+
+
+
+
+
+
 
