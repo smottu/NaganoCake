@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
-  def self.up
-    change_table :customers do |t|
+class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
+   def change
+    create_table :customers do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -13,7 +13,18 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
 
       ## Rememberable
       t.datetime :remember_created_at
-
+      
+      t.string :last_name
+      t.string :first_name
+      t.string :first_name_kana
+      t.string :last_name_kana
+      t.string :postal_code
+      t.string :address
+      t.string :telephone_number
+      t.boolean :is_deleted, default: false
+      
+      
+      
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at

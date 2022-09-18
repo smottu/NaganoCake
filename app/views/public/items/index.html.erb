@@ -1,2 +1,14 @@
-<h1>商品新規登録</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<h1>商品一覧</h1>
+
+
+<% @items.each do |item| %>
+
+<%= link_to item_path(item.id) do %>
+<%= image_tag item.get_image %>
+<% end %>
+商品名
+<%= item.name %>
+￥
+<%= item.price %>
+
+<% end  %>

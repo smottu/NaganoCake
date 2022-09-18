@@ -1,19 +1,19 @@
-<h1><%= @customer.first_name %><% @customer.last_name %>の会員詳細　</h1>
-会員ID
-<%= @customer.id %>
-氏名
-<%= @customer.first_name %><% @customer.last_name %>
-フリガナ
-<%= @customer.first_name_kana %><% @customer.last_name_kana %>
-郵便番号
-<%= @customer.postal_code %>
-住所
-<%= @customer.address %>
-電話番号
-<%= @customer.telephone_number %>
-メールアドレス
-<%= @customer.email %>
-会員ステータス
-<%= @customer.is_deleted %>
 
-編集する 注文履歴一覧を見る
+<body>
+ <main>
+  <div class="container">
+   <div class="row">
+    <div class="col">
+     <div class="bg-light"><h1><%= @customer.first_name %><% @customer.last_name %>会員詳細</h1></div>
+     <p id="notice"></p>
+    　   <table class="table table-borderless" >
+         <tr><td>会員ID</td><td><%= @customer.id %></td></tr>
+         <tr><td>氏名</td><td></td><%= @customer.first_name %><% @customer.last_name %></tr>
+         <tr><td>フリガナ</td><td><%= @customer.first_name_kana %><% @customer.last_name_kana %></td></tr>
+         <tr><td>郵便番号</td><td><%= @customer.postal_code %></td></tr>
+         <tr><td>住所</td><td><%= @customer.address %></td></tr>
+         <tr><td>電話番号</td><td><%= @customer.telephone_number %></td></tr>
+         <tr><td>メールアドレス</td><td><%= @customer.email %></td></tr>
+         <tr><td>会員ステータス</td><td><%= @customer.is_deleted %></td></tr>
+         <tr><td><%= link_to '編集する', edit_admin_customer_path(@customer.id) %></tr></td>
+        </table>

@@ -13,13 +13,11 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
-
+    @items = Item.all.page(params[:page])
   end
 
   def show
     @item = Item.find(params[:id])
-    #@genre = Item.genre.find(params[:id])
 
   end
 

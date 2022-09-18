@@ -1,23 +1,27 @@
 Rails.application.routes.draw do
 
 
-  namespace :admin do
-    get 'oders/index'
-    get 'oders/show'
-  end
+
+  root :to => 'public/homes#top'
+  get '/about' => 'public/homes#about'
+  get "customers/mypage/", to: 'public/mypage#show'
+  get 'customers/information/edit', to: 'public/information#edit'
+
+
 #顧客用
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
 
+  # get 'customers/information/profile', to: 'users#show', as: 'user_profile'
+
 # 管理者用
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
-  root :to => 'public/homes#top'
-  get '/about' => 'homes#about'
+
 
   namespace :admin do
     get '/' => 'homes#top'
@@ -26,18 +30,21 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:new, :create, :index, :show, :edit, :update]
     resources :oders, only: [:index, :show, :update]
+
   end
 
 
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
+
+
+    scope module: :public do
+    resources :items, only: [:show, :index]
+    resources :homes
+    resources :information, only: [:update]
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    get 'customers/unsubscribe'
+    get 'customers/withdraw'
   end
 
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
 
 
 

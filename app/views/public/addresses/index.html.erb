@@ -1,0 +1,25 @@
+<h2>配送先登録/一覧</h2>
+<%= form_with model: @address, url: addresses_path do |f| %>
+
+
+郵便番号(ハイフンなし)
+<%= f.text_field :postal_code, :placeholder => "0000000" %>
+住所
+<%= f.text_area :address, :placeholder => "東京都渋谷区代々木園町0-0" %>
+宛名
+<%= f.text_field  :name, :placeholder => "令和道子"%>
+<%= f.submit '新規登録', class: 'btn btn-success' %>
+<% end %>
+
+
+<% @addresses.each do |address| %>
+
+郵便番号
+<%= address.postal_code %>
+住所
+<%= address.address %>
+宛名
+<%= address.name %>
+<%= link_to "編集する", edit_address_path(address) %>
+<%= link_to "削除する" , addresses_path(address), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>

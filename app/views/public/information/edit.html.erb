@@ -1,0 +1,21 @@
+<%= form_with model: @customer, url: customers_information_edit_path do |f| %>
+
+<%= f.label "名前" %>
+<%= f.text_field :first_name, class: "form-control", :placeholder => "令和" %></td>
+<%= f.text_field :last_name, class: "form-control", :placeholder => "道子" %></td>
+<%= f.label "フリガナ" %></td>
+><%= f.text_field :first_name_kana, class: "form-control", :placeholder => "レイワ" %></td>
+<%= f.text_field :last_name_kana, class: "form-control", :placeholder => "ミチコ" %></td>
+<%= f.label :email %></td>
+<%= f.email_field :email, class: "form-control", :placeholder => "sample@example.com", autofocus: true, autocomplete: "email" %></td>
+ <%= f.label :postal_code %><br>
+<%= f.text_field :postal_code, class: "form-control", :placeholder => "0000000" %>
+<%= f.label :address %><br>
+<%= f.text_field :address, class: "form-control", :placeholder => "東京都さいたま市おおさか123" %>
+<%= f.label :telephone_number %><br>
+<%= f.text_field :telephone_number, class: "form-control", :placeholder => "0000000000" %>
+
+  <div class="actions">
+    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+  </div>
+<% end %>
