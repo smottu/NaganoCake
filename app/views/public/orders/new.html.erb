@@ -1,0 +1,36 @@
+
+<h3>注文情報入力</h3>
+
+<%= form_with model: @order, url: new_order_path do |f| %>
+支払方法
+<%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
+<%= f.label :クレジットカード %>
+<%= f.radio_button :payment_method, :銀行振込 %>
+<%= f.label :銀行振込 %>
+
+<p>お届け先</p>
+
+<%= f.label :address, 'ご自身の住所', value: 0 %>
+<%= f.radio_button :address, '1' %>
+<%= @customer.postal_code %>
+<%= @customer.address %>
+<%= @customer.first_name %>
+<%= @customer.last_name %>
+
+<%= f.label :address, '登録済住所から選択', value: 1 %>
+<%= f.radio_button :address, '1' %>
+<%= f.collection_select :address , current_customer.addresses, :id, :address, :include_blank => "選択してください" %>
+
+
+<%= f.label :address, '新しいお届け先', value: 2 %>
+<%= f.radio_button :address, '2' %>
+郵便番号(ハイフンなし)
+<%= f.text_field :postal_code, :placeholder => "0000000" %>
+住所
+<%= f.text_area :address, :placeholder => "東京都渋谷区代々木園町0-0" %>
+宛名
+<%= f.text_field :name, :placeholder => "令和道子" %>
+
+<%= link_to "確認画面へ進む", orders_confirm_path %>
+
+<% end %>

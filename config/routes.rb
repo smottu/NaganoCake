@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+
   root :to => 'public/homes#top'
   get '/about' => 'public/homes#about'
   get "customers/mypage/", to: 'public/mypage#show'
@@ -41,8 +42,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :homes
     resources :information, only: [:update]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    resources :orders, only: [:new, :index, :show]
     get 'customers/unsubscribe'
     get 'customers/withdraw'
+    get 'orders/confirm'
+    get 'orders/complete'
+    delete 'cart_items/destroy_all'
   end
 
 

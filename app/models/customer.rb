@@ -4,6 +4,10 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :cart_items
+  has_many :orders
+  has_many :addresses
+
   def full_name
     first_name.to_s + "" + last_name.to_s
   end
