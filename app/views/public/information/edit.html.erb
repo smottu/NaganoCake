@@ -1,21 +1,70 @@
-<%= form_with model: @customer, url: customers_information_edit_path do |f| %>
+<body>
+ <main>
+  <div class="container">
+   <div class="row">
+    <div class="col">
+     <div class="bg-light"><h3>会員情報編集</h3></div>
+     <p id="notice"></p>
 
-<%= f.label "名前" %>
-<%= f.text_field :first_name, class: "form-control", :placeholder => "令和" %></td>
-<%= f.text_field :last_name, class: "form-control", :placeholder => "道子" %></td>
-<%= f.label "フリガナ" %></td>
-><%= f.text_field :first_name_kana, class: "form-control", :placeholder => "レイワ" %></td>
-<%= f.text_field :last_name_kana, class: "form-control", :placeholder => "ミチコ" %></td>
-<%= f.label :email %></td>
-<%= f.email_field :email, class: "form-control", :placeholder => "sample@example.com", autofocus: true, autocomplete: "email" %></td>
- <%= f.label :postal_code %><br>
-<%= f.text_field :postal_code, class: "form-control", :placeholder => "0000000" %>
-<%= f.label :address %><br>
-<%= f.text_field :address, class: "form-control", :placeholder => "東京都さいたま市おおさか123" %>
-<%= f.label :telephone_number %><br>
-<%= f.text_field :telephone_number, class: "form-control", :placeholder => "0000000000" %>
+      <%= form_with model: @customer, url: information_path(@customer.id), method: :patch do |f| %>
 
-  <div class="actions">
-    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-  </div>
-<% end %>
+     <div class="form-row">
+      <table class="table table-borderless">
+       <thead class="thead-light">
+       <tr>
+        <td><%= f.label "名前" %></td>
+        <td><%= f.text_field :first_name, class: "form-control", :placeholder => "令和" %></td>
+        <td><%= f.text_field :last_name, class: "form-control", :placeholder => "道子" %></td>
+       </tr>
+       <tr>
+         <td><%= f.label "フリガナ" %></td>
+         <td><%= f.text_field :first_name_kana, class: "form-control", :placeholder => "レイワ" %></td>
+         <td><%= f.text_field :last_name_kana, class: "form-control", :placeholder => "ミチコ" %></td>
+       </tr>
+       </thead>
+      </table>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label '郵便番号', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :postal_code, class: "form-control", :placeholder => "0000000" %>
+      </div>
+     </div>
+     <div class="row mb-3">
+      <%= f.label '住所', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :address, class: "form-control", :placeholder => "東京都さいたま市おおさか123" %>
+      </div>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label '電話番号', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :telephone_number, class: "form-control", :placeholder => "0000000000" %>
+      </div>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label 'メールアドレス', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.email_field :email, class: "form-control", :placeholder => "sample@example.com", autofocus: true, autocomplete: "email" %>
+      </div>
+     </div>
+
+     <div class="container text-center">
+      <div class="row">
+       <div class="col">
+       <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
+       </div>
+       <div class="col">
+       <%= link_to '退会する', customers_unsubscribe_path, class: "btn btn-danger" %>
+       </div>
+      </div>
+     </div>
+    <% end %>
+　　</div>
+　 </div>
+　</div>
+ </main>
+</body>

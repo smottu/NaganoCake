@@ -3,10 +3,10 @@
 
 <%= form_with model: @order, url: new_order_path do |f| %>
 支払方法
-<%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
-<%= f.label :クレジットカード %>
-<%= f.radio_button :payment_method, :銀行振込 %>
-<%= f.label :銀行振込 %>
+<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
 
 <p>お届け先</p>
 

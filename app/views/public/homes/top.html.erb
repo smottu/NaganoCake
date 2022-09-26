@@ -1,10 +1,41 @@
-<p>ようこそ、ながのCakeへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要となります。
-</p>
+<body>
+ <main>
+  <div class="container">
+   <div class="row">
+    <div class="col">
+     <div class="mx-auto">
+      <div>
+        <h5 class="d-flex align-items-center justify-content-center" style="height:300px;">ようこそ、ながのCakeへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要となります。
+        </h5>
+      </div>
+
+     <p id="notice"></p>
+
+     <h1>新着商品</h1>
+     <% @items.first(4).each do |item| %>
+
+     <div class="card-deck" style="width: 18rem;">
+       <div class="card-body">
+        <%= image_tag item.get_image %>
+         <h5 class="card-title"><%= item.name %></h5>
+         <p class="card-text">￥<%= item.price %></p>
+       </div>
+     </div>
+     <% end %>
 
 
-<h1>新着商品</h1>
 
-<%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+
+
+
+     <p><%= link_to '全ての商品を見る＞', items_path %></p>
+
+    </div>
+　 </div>
+　</div>
+ </main>
+</body>
+

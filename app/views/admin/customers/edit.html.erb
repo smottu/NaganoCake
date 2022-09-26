@@ -8,7 +8,7 @@
 
 
      <form class="row g-3">
-       <% form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+       <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
         <div class="col-md-6">
           <label><%= f.text_area :first_name %></label>
         </div>
