@@ -4,10 +4,6 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
-
-  ja:
-    enums:
-      order:
         status:
           unpaid: "入金待ち"
           payment: "入金確認"

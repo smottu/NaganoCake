@@ -1,4 +1,6 @@
 class Public::InformationController < ApplicationController
+
+
   def edit
     @customer = current_customer
   end

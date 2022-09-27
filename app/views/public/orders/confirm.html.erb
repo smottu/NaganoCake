@@ -1,12 +1,44 @@
-<h3>注文情報確認</h3>
+<body>
+ <main>
+  <div class="container">
+   <div class="row">
+    <div class="col">
+     <p id="notice"></p>
+     <div class="bg-light"><h3>注文情報確認</h3></div>
+     <p></p><h3></h3>
 
-商品名
+    <table border="1" class="float-left">
+      <thead>
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">単価(税込)</th>
+          <th scope="col">数量</th>
+          <th scope="col">小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td scope="row">
+            <%= image_tag cart_item.item.get_image,  width: '100px', height: '70px' %>
+            <%= cart_item.item.name %>
+          </td>
+          <td>￥<%= cart_item.item.with_tax_price%></td>
+          <td>
+          <% cart_item.amount %>
+          </td>
+          <td><%= cart_item.subtotal%>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table border="1">
+     <tr>
+      <td></td>
+      <td><% @total_price += cart_item.subtotal %></td>
+     </tr>
+    </table>
 
-単価(税込)
-
-数量
-
-小計
 
 送料
 
@@ -15,6 +47,12 @@
 請求金額
 
 
-支払方法
+<strong><h4>支払方法</h4></strong>
 
-お届け先
+<strong><h4>お届け先</h4></strong>
+
+　　</div>
+　 </div>
+　</div>
+ </main>
+</body>

@@ -1,4 +1,10 @@
-<h1>注文履歴一覧</h1>
+<body>
+ <main>
+  <div class="container">
+   <div class="row">
+    <div class="col">
+     <div class="bg-light"><h1>注文履歴一覧</h1></div>
+     <p id="notice"></p>
 
 
 <% @orders.each do |order| %>
@@ -16,3 +22,9 @@
 <%= link_to "表示する", order_path(order.id) %>
 
 <% end %>
+
+　　</div>
+　 </div>
+　</div>
+ </main>
+</body>

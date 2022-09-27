@@ -13,8 +13,9 @@ class Public::CartItemsController < ApplicationController
       cart_item.save
       redirect_to cart_items_path
     else
-    @cart_item.save
-    redirect_to cart_items_path
+     @cart_item.customer_id = current_customer.id
+     @cart_item.save
+     redirect_to cart_items_path
     end
   end
 

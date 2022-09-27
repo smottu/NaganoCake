@@ -24,7 +24,6 @@
       <%= f.label '宛名', class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">
       <%= f.text_field :name, class: "form-control", :placeholder => "令和道子"%><%= f.submit '新規登録', class: 'btn btn-success' %>
-
       </div>
      </div>
 
@@ -44,14 +43,15 @@
   <tbody>
     <% @addresses.each do |address| %>
     <tr>
-      <th scope="row"><%= address.postal_code %></th>
+      <th scope="row">
+       <%= address.postal_code %></th>
       <td><%= address.address %></td>
       <td><%= address.name %></td>
       <td><%= link_to "編集する", edit_address_path(address) %>
           <%= link_to "削除する" , addresses_path(address), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       </td>
+      <% end %>
     </tr>
-    <% end %>
   </tbody>
 </table>
     </div>

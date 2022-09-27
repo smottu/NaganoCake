@@ -42,7 +42,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :information, only: [:edit, :update]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :create, :index, :show]
     get "customers/mypage"
     get 'customers/unsubscribe'
     get 'customers/withdraw'
