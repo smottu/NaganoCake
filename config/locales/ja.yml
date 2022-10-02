@@ -10,3 +10,10 @@
           under_manufacture: "製作中"
           sipping_preparation: "出荷準備中"
           shipped: "発送済み"
+      order_detail:
+        making_status:
+          not_allowed: "製作不可"
+          waiting: "製作待ち"
+          making: "製作中"
+          completion: "製作完了"
+  

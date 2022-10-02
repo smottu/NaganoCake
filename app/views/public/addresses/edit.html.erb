@@ -8,7 +8,7 @@
 　　　<%= form_with model: @address, url: address_path(@address) do |f| %>
 
 　　　<div class="row mb-3">
-      <%= f.label '郵便番号', class: "col-sm-2 col-form-label" %>
+      <%= f.label '郵便番号(ハイフンなし)', class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">
       <%= f.text_field :postal_code, class: "form-control", :placeholder => "0000000" %>
       </div>
@@ -23,7 +23,7 @@
       <%= f.label '宛名', class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">
       <%= f.text_field :name, class: "form-control", :placeholder => "令和道子"%>
-      <%= f.submit '変更を登録', class: 'btn btn-success' %>
+      <div class="text-right"><%= f.submit '変更内容を保存', class: 'btn btn-success' %></div>
       </div>
      </div>
      <% end %>

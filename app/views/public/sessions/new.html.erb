@@ -3,35 +3,39 @@
   <div class="container">
    <div class="row">
     <div class="col">
-     <div class="bg-light"><h3>ログイン</h3></div>
      <p id="notice"></p>
+     <div class="bg-light"><h3>ログイン</h3></div>
+     <p></p>
 
 
 <%= form_with model: @customer, url: customer_session_path do |f| %>
 
-  <div class="bg-light"><h4>会員の方はこちらからログイン</h4></div>
-  <div class="col-5 mx-auto">
-  <div class="field">
-    <%= f.label "メールアドレス" %><br />
-    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="bg-light"><h4>会員の方はこちらからログイン</h4></div>
+    <div class="col">
+       <div class="row mb-3">
+        <%= f.label 'メールアドレス', class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+        <%= f.email_field :email, class: "form-control", :placeholder => "sample@example.com", autofocus: true, autocomplete: "email" %>
+        </div>
+       </div>
 
-  <div class="field">
-    <%= f.label "パスワード" %><br />
-    <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
-  </div>
+       <div class="row mb-3">
+        <%= f.label "パスワード" %>
+        <div class="col-sm-10">
+        <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+        </div>
+       </div>
 
+       <div class="actions mx-auto", style="width: 200px;">
+         <%= f.submit "ログイン", class: "btn btn-success" %>
+       </div>
+       </div>
+     <% end %>
 
-
-  <div class="actions mx-auto", style="width: 200px;">
-    <%= f.submit "Log in" %>
-
-  </div>
-  </div>
-<% end %>
-
-<div class="bg-light"><h4>会員登録がお済みでない方</h4></div>
-<%= link_to "こちら", new_customer_registration_path %>から新規登録を行って下さい。
-
-<%= render "public/shared/links" %>
-</div>
+     <div class="bg-light"><h4>会員登録がお済みでない方</h4></div>
+     <%= link_to "こちら", new_customer_registration_path %>　から新規登録を行って下さい。
+     </div>
+　 </div>
+　</div>
+ </main>
+</body>

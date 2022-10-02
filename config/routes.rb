@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'customers/information/edit', to: 'public/information#edit'
 
 
+
 #顧客用
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -29,14 +30,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :products, only: [:new, :create, :destroy]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:new, :create, :index, :show, :edit, :update]
-    resources :oders, only: [:index, :show, :update]
-
+    resources :orders, only: [:show, :update]
   end
 
 
 
 
     scope module: :public do
+    get 'orders/complete'
+    delete '/cart_items/destroy_all'
     resources :items, only: [:show, :index]
     resources :homes
     resources :information, only: [:edit, :update]
@@ -45,9 +47,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :orders, only: [:new, :create, :index, :show]
     get "customers/mypage"
     get 'customers/unsubscribe'
-    get 'customers/withdraw'
-    get 'orders/confirm'
-    get 'orders/complete'
+    patch 'customers/withdraw'
+    post 'orders/confirm'
 
   end
 

@@ -11,9 +11,7 @@
         購入には会員登録が必要となります。
         </h5>
       </div>
-
-     <p id="notice"></p>
-
+     <p></p>
      <h1>新着商品</h1>
      <% @items.first(4).each do |item| %>
 
@@ -25,12 +23,6 @@
        </div>
      </div>
      <% end %>
-
-
-
-
-
-
      <p><%= link_to '全ての商品を見る＞', items_path %></p>
 
     </div>

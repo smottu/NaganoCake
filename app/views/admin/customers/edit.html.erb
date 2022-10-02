@@ -7,51 +7,74 @@
      <p id="notice"></p>
 
 
-     <form class="row g-3">
        <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
-        <div class="col-md-6">
-          <label><%= f.text_area :first_name %></label>
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-        <% end %>
-      </form>
+
+
+     <div class="form-row">
+
+      <table class="table table-borderless">
+       <thead class="thead-light">
+       <tr>
+        <td>会員ID</td>
+        <td><%= @customer.id %></td>
+       </tr>
+       <tr>
+        <td><%= f.label "名前" %></td>
+        <td><%= f.text_field :first_name, class: "form-control", :placeholder => "令和" %></td>
+        <td><%= f.text_field :last_name, class: "form-control", :placeholder => "道子" %></td>
+       </tr>
+       <tr>
+         <td><%= f.label "フリガナ" %></td>
+         <td><%= f.text_field :first_name_kana, class: "form-control", :placeholder => "レイワ" %></td>
+         <td><%= f.text_field :last_name_kana, class: "form-control", :placeholder => "ミチコ" %></td>
+       </tr>
+       </thead>
+      </table>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label '郵便番号', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :postal_code, class: "form-control", :placeholder => "0000000" %>
+      </div>
+     </div>
+     <div class="row mb-3">
+      <%= f.label '住所', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :address, class: "form-control", :placeholder => "東京都さいたま市おおさか123" %>
+      </div>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label '電話番号', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.text_field :telephone_number, class: "form-control", :placeholder => "0000000000" %>
+      </div>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label 'メールアドレス', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+      <%= f.email_field :email, class: "form-control", :placeholder => "sample@example.com", autofocus: true, autocomplete: "email" %>
+      </div>
+     </div>
+
+     <div class="row mb-3">
+      <%= f.label '会員ステータス', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+       <%= f.radio_button :is_deleted, :false %>有効
+       <%= f.radio_button :is_deleted, :true %>退会
+      </div>
+     </div>
+
+     <div class="container text-center">
+      <div class="row">
+       <div class="col">
+       <%= f.submit "変更を保存", class: "btn btn-success mr-5" %>
+       </div>
+      </div>
+     </div>
+    <% end %>
 　　</div>
 　 </div>
 　</div>

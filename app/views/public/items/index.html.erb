@@ -4,20 +4,23 @@
   <div class="container">
    <div class="row">
     <div class="col">
-     <div class="bg-light"><h1>商品一覧</h1></div>
-     <p id="notice"></p>
+    <p id="notice"></p>
+    <div class="bg-light"><h1>商品一覧</h1></div>
+    <p></p>
 
+
+     <div class="col-2 align-self-center">
 <% @items.each do |item| %>
 
 <%= link_to item_path(item.id) do %>
-<%= image_tag item.get_image, width: '300px', height: '200px' %>
-<% end %>
-商品名
-<%= item.name %>
-￥
-<%= item.price %>
-
+<%= image_tag item.get_image, width: '150px', height: '100px' %>
+<% end %><br>
+<%= item.name %><br>
+￥<%= item.price %><br>
 <% end  %>
+</div>
+<%= paginate @items %>
+   
 　　</div>
 　 </div>
 　</div>

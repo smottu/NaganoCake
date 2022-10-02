@@ -2,29 +2,47 @@
  <main>
   <div class="container">
    <div class="row">
-    <div class="col">
-     <div class="bg-light"><h1>注文履歴一覧</h1></div>
+    <div class="col-3">
      <p id="notice"></p>
+     <div class="bg-light"><h1>注文履歴一覧</h1></div>
+
+     </div>
+     </div>
+
+     <div class="row">
+      <div class="col-sm">
 
 
-<% @orders.each do |order| %>
-注文日
-<%= order.created_at.strftime('%Y/%m/%d') %>
-配送先
-<%= order.address %>
-注文商品
-<%= order.item.name %>
-支払金額
-<%= order.total_price %>
-ステータス
-<%= order.is_active %> 
-注文詳細
-<%= link_to "表示する", order_path(order.id) %>
+      <table class="table-bordered">
+       <thead>
+        <tr class="table bg-light">
+         <th>注文日</th>
+         <th>配送先</th>
+         <th>注文商品</th>
+         <th>支払金額</th>
+         <th>ステータス</th>
+         <th>注文詳細</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <% @orders.each do |order| %>
+          <th><%= order.created_at.strftime('%Y/%m/%d') %></th>
+          <th><%= order.address %></th>
+          <th>
+           <% order.order_details.each do |order_detail| %>
+           <%= order_detail.item.name %><br>
+           <% end %>
+          </th>
+          <th><%= order.amount_money %></th>
+          <th><%= order.status %></th>
+          <th><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></th>
+          </tr>
+         <% end %>
 
-<% end %>
-
-　　</div>
-　 </div>
-　</div>
+       </tbody>
+      </div>
+     </div>
+</div>
  </main>
 </body>
