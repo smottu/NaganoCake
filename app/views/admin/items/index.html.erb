@@ -4,17 +4,19 @@
    <div class="row">
     <div class="col">
      <div class="bg-light"><h1>商品一覧</h1></div>
-     <p class="text-right"><%= link_to "新規登録", new_admin_item_path %></p>
-     <p id="notice"></p>
+     <p class="text-right"><%= link_to new_admin_item_path do %><i class="fas fa-plus">新規登録</i><% end %></p>
+     <p></p>
+
+
 
       <table class="table table-borderless">
        <thead class="thead-light">
         <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
+          <th scope="col">商品ID</th>
+          <th scope="col">商品名</th>
+          <th scope="col">税抜価格</th>
+          <th scope="col">ジャンル</th>
+          <th scope="col">ステータス</th>
         </tr>
        </thead>
       <% @items.each do |item| %>
@@ -26,9 +28,9 @@
           <td><%= item.genre.name %></td>
           <td>
            <% if item.is_active %>
-            販売中
+            <b><font color="green">販売中</font></b>
            <% else %>
-            販売停止中
+            <b><font color="silver">販売停止中</font></b>
            <% end %>
            </td>
           <td></td>

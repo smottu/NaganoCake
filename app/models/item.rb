@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
-  validates :is_active, presence: true
+
 
 
  has_one_attached :image
@@ -13,6 +13,12 @@ class Item < ApplicationRecord
   def with_tax_price
     (price * 1.1).floor
   end
+
+  def subtotal
+    (price * 1.1).floor * amount
+  end
+
+
 
 
   def get_image

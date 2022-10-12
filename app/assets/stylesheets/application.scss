@@ -1,5 +1,5 @@
 
-#*= require font-awesomes
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,3 +15,17 @@
  *= require_tree .
  *= require_self
  */
+
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+.top-image{
+  height: 200px;
+	background-image: image-url("cake.png");
+	background-size: contain;
+	background-size: cover;
+}
+
+.name{
+  margin-left: 40%;
+  margin-right: auto;
+}

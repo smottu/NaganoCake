@@ -3,13 +3,17 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genres = Genre.all
+    # @genres = Genre.all
+    set_genre
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
     redirect_to admin_item_path(@item.id)
+    else
+     render :new
+    end
   end
 
   def index
@@ -19,7 +23,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    
+
   end
 
   def edit
@@ -39,7 +43,7 @@ private
   end
 
   def set_genre
-   @genres = Genre.all
+  @genres = Genre.all
   end
 
 end

@@ -3,28 +3,42 @@
   <div class="container">
    <div class="row">
     <div class="col">
-     <div class="mx-auto">
-      <div>
-        <h5 class="d-flex align-items-center justify-content-center" style="height:300px;">ようこそ、ながのCakeへ！<br>
+        <h5 class="d-flex align-items-center justify-content-center top-image" style="height:300px;">
+         ようこそ、ながのCakeへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
         購入には会員登録が必要となります。
         </h5>
-      </div>
-     <p></p>
+     </div>
+　 </div>
+　 <p></p>
+　 <div class="row">
+　  <div class="col">
      <h1>新着商品</h1>
+    </div>
+   </div>
+   <div class="row">
+     <p></p>
      <% @items.first(4).each do |item| %>
-
-     <div class="card-deck" style="width: 18rem;">
+     <div class="col-3">
+     <div class="card-deck">
        <div class="card-body">
-        <%= image_tag item.get_image, width: '70%', height: '70%' %>
+        <%= link_to item_path(item.id) do%>
+        <%= image_tag item.get_image, width: '50%', height: '50%' %>
+
          <h5 class="card-title"><%= item.name %></h5>
          <p class="card-text">￥<%= item.price %></p>
+         <% end %>
        </div>
      </div>
+     </div>
      <% end %>
-     <p><%= link_to '全ての商品を見る＞', items_path %></p>
+   </div>
+     <div class="row">
+      <div class="col-12 clearfix">
+      　<div class="float-right test-box"><%= link_to '全ての商品を見る＞', items_path %></div>
 
+     </div>
     </div>
 　 </div>
 　</div>

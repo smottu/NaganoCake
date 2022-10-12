@@ -10,10 +10,10 @@
      </div>
 
      <div class="row">
-      <div class="col-sm">
+      <div class="col">
 
 
-      <table class="table-bordered">
+      <table class="table-bordered" width=100% height=150>
        <thead>
         <tr class="table bg-light">
          <th>注文日</th>
@@ -28,15 +28,18 @@
         <tr>
          <% @orders.each do |order| %>
           <th><%= order.created_at.strftime('%Y/%m/%d') %></th>
-          <th><%= order.address %></th>
+          <th>
+           <%= order.postal_code %><br>
+          <%= order.address %><br>
+          <%= order.name %></th>
           <th>
            <% order.order_details.each do |order_detail| %>
            <%= order_detail.item.name %><br>
            <% end %>
           </th>
-          <th><%= order.amount_money %></th>
-          <th><%= order.status %></th>
-          <th><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></th>
+          <th><%= order.amount_money %>円</th>
+          <th><%= order.status_i18n %></th>
+          <th class="text-center"><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></th>
           </tr>
          <% end %>
 
